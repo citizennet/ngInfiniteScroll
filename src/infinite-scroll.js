@@ -18,7 +18,10 @@ angular.module(MODULE_NAME, [])
     },
 
     link(scope, elem, attrs) {
-      const windowElement = angular.element($window);
+      function ngInfiniteScrollTag() {}
+      scope.__tag = new ngInfiniteScrollTag();
+
+      let windowElement = angular.element($window);
 
       let scrollDistance = null;
       let scrollEnabled = null;
@@ -137,6 +140,9 @@ angular.module(MODULE_NAME, [])
 
       function handleDestroy() {
         container.unbind('scroll', handler);
+        container = null;
+        windowElement = null;
+
         if (unregisterEventListener != null) {
           unregisterEventListener();
           unregisterEventListener = null;
