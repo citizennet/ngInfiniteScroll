@@ -4,7 +4,10 @@
     "rules": {
         "arrow-parens": [2, "as-needed"],
         "curly": [2, "all"],
-        "import/no-unresolved": 0
+        "import/no-unresolved": 0,
+        "no-underscore-dangle": 1,
+        "no-param-reassign": 1,
+        "new-cap": 1
     },
     "env": {
         "browser": true
